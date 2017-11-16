@@ -2,35 +2,35 @@
 <main class="main">
   <section class="card section">
     <h1>Lamp settings</h1>
-    <pre [style.background-color]="'rgb(' + red.value + ',' + green.value +',' + blue.value +')'">{{message}}</pre>
+    <pre [style.background-color]="'rgb(' + lamp.red + ',' + lamp.green +',' + lamp.blue +')'">{{message}}</pre>
     <div class="flex">
         <div class="flex flex-column">
             <div class="flex m-b-10">
-                <mat-slider #red [max]="255" [min]="0" [step]="5" [tick-interval]="10">
+                <mat-slider [(ngModel)]='lamp.red' [max]="255" [min]="0" [step]="5" [tick-interval]="10">
                   </mat-slider>
-                <span class="red">{{red.value}}</span>
+                <span class="red">{{lamp.red}}</span>
             </div>
             <div class="flex m-b-10">
-                <mat-slider #green [max]="255" [min]="0" [step]="5" [tick-interval]="10">
+                <mat-slider [(ngModel)]='lamp.green' [max]="255" [min]="0" [step]="5" [tick-interval]="10">
                   </mat-slider>
-                <span class="green">{{green.value}}</span>
+                <span class="green">{{lamp.green}}</span>
             </div>
             <div class="flex m-b-10">
-                <mat-slider #blue [max]="255" [min]="0" [step]="5" [tick-interval]="10">
+                <mat-slider [(ngModel)]='lamp.blue' [max]="255" [min]="0" [step]="5" [tick-interval]="10">
                   </mat-slider>
-                <span class="blue">{{blue.value}}</span>
+                <span class="blue">{{lamp.blue}}</span>
             </div>
         </div>
         
         <div class="flex">
-            <mat-slider class="vert" #position [max]="100" [min]="0" [step]="5" [tick-interval]="10" [vertical]="true">
+            <mat-slider [(ngModel)]='lamp.position' class="vert" [max]="100" [min]="0" [step]="5" [tick-interval]="10" [vertical]="true">
               </mat-slider>
-            <div class="position">{{position.value}}</div>
+            <div class="position">{{lamp.position}}</div>
         </div>
     </div>
     
 
-    <button (click)="emit([red.value, green.value, blue.value, position.value])" mat-raised-button color="primary">Send</button>
+    <button (click)="emit(lamp)" mat-raised-button color="primary">Send</button>
   </section>
 
 </main>
